@@ -1,3 +1,9 @@
+//-------------------------------------
+// class Team
+//-------------------------------------
+// Creates a class "Team" and contains all the funtion to manipulate an array of "Players"
+//-------------------------------------
+
 #pragma once
 #include "Player.h"
 #include "Statistic.h""

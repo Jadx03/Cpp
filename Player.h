@@ -1,3 +1,9 @@
+//-------------------------------------
+// class Player
+//-------------------------------------
+// Creates a class "Player" with all the needed information
+//-------------------------------------
+
 #pragma once
 #include<string>
 #include "Statistic.h"

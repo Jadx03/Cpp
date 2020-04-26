@@ -5,13 +5,14 @@
 #include "Statistic.h"
 
 using namespace std;
-
+//----------CONSTRUCTOR------------
 Player::Player() {
 	playerName = "";
 	jerseyNum = 0;
 	numGames = 0;
 }
 
+//------------SET METHODS-----------------
 void Player::Set_playerName(std::string name){
 	playerName = name;
 }
@@ -19,7 +20,7 @@ void Player::Set_jerseyNum(int num) {
 	jerseyNum = num;
 }
 
-
+//---------------GET METHODS----------------
 std::string Player::Get_playerName() {
 	return playerName;
 }
@@ -40,7 +41,7 @@ Statistic Player::Get_numFreeThrows(int index) {
 	return numFreeThrows[index];
 }
 
-
+//-------------METHOD TO CALCULATE THE TOTAL POINTS IN ONE GAME-------------
 void Player::TotalGamePoints_calc() {
 
 
@@ -49,6 +50,7 @@ void Player::TotalGamePoints_calc() {
 	}
 }
 
+//-----------------METHODS TO CALCULATE TOTAL STATISTICS------------------
 void Player::ThreePtCalc() {
 	int num_made = 0;
 	int num_att = 0;
@@ -94,6 +96,7 @@ void Player::OverallPtCalc() {
 	TotalOverallPoints = num_made;
 }
 
+//-------------METHOD TO ADD GAME---------------------
 void Player::addGame(Statistic threept, Statistic twopt, Statistic freept) {
 
 	if (numGames == 15) {
@@ -115,6 +118,7 @@ void Player::addGame(Statistic threept, Statistic twopt, Statistic freept) {
 	}
 }
 
+//--------------METHOD TO PRINT THE PLAYERS INFORMATION---------------
 void Player::print() {
 
 	std::cout << playerName << " " << "[" << jerseyNum << "]" << std::endl;

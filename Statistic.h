@@ -1,3 +1,9 @@
+//-------------------------------------
+// class Statistic
+//-------------------------------------
+// Creates a data structure class with two ints - Points made and attempted points
+//-------------------------------------
+
 #pragma once
 
 

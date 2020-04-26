@@ -5,22 +5,21 @@ const int zero = 0;
 
 Statistic::Statistic() { int numPoints = 0; int numAttempt = 0; }
 
+//----------------SET METHODS----------------------
 void Statistic::Set_numPoints(int numINpoints) {
 	numPoints = numINpoints;
 }
-
 void Statistic::Set_numAttempts(int numINattempt) {
 	numAttempt = numINattempt;
 }
 
+//-------------GET METHODS--------------
 int Statistic::Get_numPoints(){
 	return numPoints;
 }
-
 int Statistic::Get_numAttempt() {
 	return numAttempt;
 }
-
 int Statistic::getPercent() {
 	
 	if (numAttempt == 0) {

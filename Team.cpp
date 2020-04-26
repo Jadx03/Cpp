@@ -11,27 +11,24 @@ const int not_found = -1;
 
 Team::Team() { NumPlayers = 0; NumGames = 0; }
 
+//------------SET METHODS------------
 void Team::SetNumGames(int num_game) {
 	NumGames = num_game;
 }
 void Team::SetNumPLayers(int num_play) {
 	NumPlayers = num_play;
 }
-//void Team::SetPlayerArr(Player temp[]) {
-	//PlayerArr[] = temp;
-//}
 
+//-----------------GET METHODS------------
 int Team::GetNumGames() {
 	return NumGames;
 }
 int Team::GetNumPlayers() {
 	return NumPlayers;
 }
-//Player Team::GetPlayerArr() {
-	//return PlayerArr[];
-//}
 
 
+//-----------"READ" TO READ DATA FROM INPUT FILE-------------
 void Team::read() {
 	
 	std::ifstream f;
@@ -85,6 +82,7 @@ void Team::read() {
 	f.close();
 }
 
+// ---------PRINT METHOD---------------------
 void Team::print() {
 	
 	for (int i = 0; i < NumPlayers; i++) {
@@ -93,6 +91,7 @@ void Team::print() {
 	std::cout << std::endl;
 }
 
+//-----------METHOD TO ADD A GAME----------------
 void Team::addGame() {
 	
 	for (int i = 0; i < NumPlayers; i++) {
@@ -119,6 +118,7 @@ void Team::addGame() {
 
 }
 
+//----------SEARCH------------
 int Team::searchPlayer() {
 	int usrin_jerseyNUm;
 	int temp;
@@ -135,6 +135,7 @@ int Team::searchPlayer() {
 	
 }
 
+//-------------DISPLAY-----------------
 void Team::displayPlayer() {
 	int index_temp = searchPlayer();
 
@@ -146,6 +147,7 @@ void Team::displayPlayer() {
 	}
 }
 
+//---------------REMOVE PLAYER----------
 void Team::removePlayer() {
 	int index_temp = searchPlayer();
 
@@ -161,8 +163,9 @@ void Team::removePlayer() {
 	}
 }
 
+//------SORT BY NAME----------
 void Team::sortByName() {
-	std::cout << NumPlayers << std::endl;
+	//std::cout << NumPlayers << std::endl;
 
 	for (int i = 0; i < NumPlayers - 1 ; i++) {
 		for (int j =i ; j < NumPlayers; j++) {
@@ -175,6 +178,7 @@ void Team::sortByName() {
 	}
 }
 
+//---------SORT BY JERSEY NUMBER-------------
 void Team::sortByJersey() {
 	
 	for (int i = 0; i < NumPlayers - 1; i++) {
@@ -189,6 +193,7 @@ void Team::sortByJersey() {
 
 }
 
+//--------------"WRITE" TO WRITE THE DATA TO THE OUPTUT FILE-------------
 void Team::write() {
 	
 	std::ofstream g;
