@@ -3,6 +3,8 @@
 #include "Statistic.h"
 const int maxNumGames = 15;
 
+
+
 class Player {
 private:
 	std::string playerName;

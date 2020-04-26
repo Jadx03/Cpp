@@ -16,5 +16,5 @@ public:
 	void Set_numAttempts(int numPoints);
 
 	
-	double getPercent();
+	int getPercent();
 };

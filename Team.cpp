@@ -162,9 +162,10 @@ void Team::removePlayer() {
 }
 
 void Team::sortByName() {
-	
-	for (int i = 0; i < NumGames - 1; i++) {
-		for (int j = i + 1; j < NumGames; j++) {
+	std::cout << NumPlayers << std::endl;
+
+	for (int i = 0; i < NumPlayers - 1 ; i++) {
+		for (int j =i ; j < NumPlayers; j++) {
 			if (PlayerArr[j].Get_playerName() < PlayerArr[i].Get_playerName()) {
 				Player temp = PlayerArr[i];
 				PlayerArr[i] = PlayerArr[j];
@@ -176,8 +177,8 @@ void Team::sortByName() {
 
 void Team::sortByJersey() {
 	
-	for (int i = 0; i < NumGames - 1; i++) {
-		for (int j = i + 1; j < NumGames; j++) {
+	for (int i = 0; i < NumPlayers - 1; i++) {
+		for (int j = i + 1; j < NumPlayers; j++) {
 			if (PlayerArr[j].Get_jerseyNum() < PlayerArr[i].Get_jerseyNum()) {
 				Player temp = PlayerArr[i];
 				PlayerArr[i] = PlayerArr[j];

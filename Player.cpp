@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "Statistic.h"
 
+using namespace std;
 
 Player::Player() {
 	playerName = "";
@@ -44,7 +45,7 @@ void Player::TotalGamePoints_calc() {
 
 
 	for (int i = 0; i < numGames; i++) {
-		TotalGamePoints[i] = num3points[i].Get_numPoints() + num2points[i].Get_numPoints() + numFreeThrows[i].Get_numPoints();
+		TotalGamePoints[i] = (3 * num3points[i].Get_numPoints()) + (2 * num2points[i].Get_numPoints()) + (1 * numFreeThrows[i].Get_numPoints());
 	}
 }
 
@@ -115,23 +116,25 @@ void Player::addGame(Statistic threept, Statistic twopt, Statistic freept) {
 }
 
 void Player::print() {
-		
+
 	std::cout << playerName << " " << "[" << jerseyNum << "]" << std::endl;
 
 	std::cout << "Game" << " " << "3-Point FGs " << " " << "2-Point FGs " << " " << "Free Throws " << "Total" << std::endl;
-	std::cout << "----" << " " << "------------" << " " << "------------" << " " << "------------" << "-----" << std::endl;
+	std::cout << "----" << " " << "------------" << " " << "------------" << " " << "----------- " << "-----" << std::endl;
 
 	for (int i = 0; i < numGames; i++) {
-		
-		std::cout << std::setw(4) << std::left << i + 1 << " " << std::setw(2) << num3points[i].Get_numPoints() << std::setw(2) << num3points[i].Get_numAttempt() << " (" << std::setw(3) << std::setprecision(0) << num3points[i].getPercent() << ")" << " "
-			<< std::setw(2) << num2points[i].Get_numPoints() << std::setw(2) << num2points[i].Get_numAttempt() << " (" << std::setw(3) << std::setprecision(0) << num2points[i].getPercent() << ")" << " "
-			<< std::setw(2) << numFreeThrows[i].Get_numPoints() << std::setw(2) << numFreeThrows[i].Get_numAttempt() << " (" << std::setw(3) << std::setprecision(0) << numFreeThrows[i].getPercent() << ")" << " "
-			<< std::setw(5) << TotalGamePoints[i] << std::endl;
+
+		cout << setw(4) << right << i << " " << setw(2) << num3points[i].Get_numPoints() << "/" << setw(2) << num3points[i].Get_numAttempt() << " (" << setw(3) << setprecision(1) << num3points[i].getPercent() << "%)" << " "
+			<< setw(2) << num2points[i].Get_numPoints() << "/" << setw(2) << num2points[i].Get_numAttempt() << " (" << setw(3) << setprecision(1) << num2points[i].getPercent() << "%)" << " "
+			<< setw(2) << numFreeThrows[i].Get_numPoints() << "/" << setw(2) << numFreeThrows[i].Get_numAttempt() << " (" << setw(3) << setprecision(1) << numFreeThrows[i].getPercent() << "%)" << " "
+			<< setw(4) << right << TotalGamePoints[i] << endl;
+
 	}
 
+	cout << setw(4) << right << "ALL" << " " << setw(2) << Total3Stat.Get_numPoints() << "/" << setw(2) << Total3Stat.Get_numAttempt() << " (" << setw(3) << setprecision(1) << Total3Stat.getPercent() << "%)" << " "
+		<< setw(2) << Total2Stat.Get_numPoints() << "/" << setw(2) << Total2Stat.Get_numAttempt() << " (" << setw(3) << setprecision(1) << Total2Stat.getPercent() << "%)" << " "
+		<< setw(2) << TotalFTStat.Get_numPoints() << "/" << setw(2) << TotalFTStat.Get_numAttempt() << " (" << setw(3) << setprecision(1) << TotalFTStat.getPercent() << "%)" << " "
+		<< setw(4) << right << TotalOverallPoints << endl << endl;
 
-	std::cout << std::setw(4) << std::left << "ALL" << " " << std::setw(2) << Total3Stat.Get_numPoints() << std::setw(2) << Total3Stat.Get_numAttempt() << " (" << std::setw(3) << std::setprecision(0) << Total3Stat.getPercent() << ")" << " "
-		<< std::setw(2) << Total2Stat.Get_numPoints() << std::setw(2) << Total2Stat.Get_numAttempt() << " (" << std::setw(3) << std::setprecision(0) << Total2Stat.getPercent() << ")" << " "
-		<< std::setw(2) << TotalFTStat.Get_numPoints() << std::setw(2) << TotalFTStat.Get_numAttempt() << " (" << std::setw(3) << std::setprecision(0) << TotalFTStat.getPercent() << ")" << " "
-		<< std::setw(5) << TotalOverallPoints << std::endl;
+
 }

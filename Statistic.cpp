@@ -1,6 +1,8 @@
 #include<iostream>
 #include "Statistic.h"	
 
+const int zero = 0;
+
 Statistic::Statistic() { int numPoints = 0; int numAttempt = 0; }
 
 void Statistic::Set_numPoints(int numINpoints) {
@@ -19,9 +21,15 @@ int Statistic::Get_numAttempt() {
 	return numAttempt;
 }
 
-double Statistic::getPercent() {
-	double percent = ((1.0 * numPoints) / (1.0 * numAttempt)) * 100;
-	return percent;
+int Statistic::getPercent() {
+	
+	if (numAttempt == 0) {
+		return zero;
+	}
+	else {
+		int percent = ((1.0 * numPoints) / (1.0 * numAttempt)) * 100;
+		return percent;
+	}
 }
 
 
